@@ -3,7 +3,6 @@
  * @param {Number} number
  * @returns {Number} number
  */
-
 const factorial = (number) => {
   if (number === 0) {
     return 1;
@@ -23,7 +22,6 @@ const factorial = (number) => {
  * @param {Number} r is choosen object around number
  * @returns {Number} number
  */
-
 const combination = (number, r) => {
   if (number < 0) {
     return "Number can't be negative";
@@ -41,7 +39,6 @@ const combination = (number, r) => {
  * @param {Number} coefficient
  * @returns {Array} contain number every coefficient
  */
-
 const binomialTheorem = (coefficient) => {
   const total = [];
 
@@ -63,7 +60,6 @@ const binomialTheorem = (coefficient) => {
  * @param {Number} number
  * @returns {Array} contain every row of coefficient
  */
-
 const expandEveryRow = (number) => {
   const total = [];
   for (i = 0; i <= number; i++) {
@@ -76,18 +72,52 @@ const expandEveryRow = (number) => {
 // console.log(expandEveryRow(1))
 
 /**
- * To render every change
+ * To formal row
  */
+// const formatRow = () => {
+//   return `<div class="row"></div>`;
+// }
 
-const render = () => {
-  console.log("yes");
-  console.log(expandEveryRow(inputNumber.value));
-  console.log(binomialTheorem(inputNumber.value));
+/**
+ * To format column
+ */
+const formatColumn = (number) => {
+  return `<div class="col">${number}</div>`;
 };
 
-const inputNumber = document.querySelector("input[name='inputNumber']");
-const buttonSubmit = document.querySelector("#buttonSubmit");
+/**
+ * To visualize just one row
+ */
+const visualOneRow = (val) => {};
 
-buttonSubmit.addEventListener("click", render);
+/**
+ * To visualize every row
+ */
+const visualEveryRow = (val) => {};
 
+/**
+ *
+ * To visualize one row and every row
+ */
 const visualization = (arr) => {};
+
+/**
+ * To render every change
+ * Always clear visual every run
+ */
+const render = () => {
+  const inputNumber = document.querySelector("input[name='inputNumber']");
+
+  // render visual one row
+  const outputVisualOneRow = document.querySelector("#visual-one-row");
+  outputVisualOneRow.innerHTML = "";
+  outputVisualOneRow.innerHTML = visualOneRow(inputNumber.value);
+
+  // render visual every row
+  const outputVisualEveryRow = document.querySelector("#visual-every-row");
+  outputVisualEveryRow.innerHTML = "";
+  outputVisualEveryRow.innerHTML = visualEveryRow(inputNumber.value);
+};
+
+const buttonSubmit = document.querySelector("#buttonSubmit");
+buttonSubmit.addEventListener("click", render);

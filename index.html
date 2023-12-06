@@ -7,25 +7,35 @@
     <title>Binomial Theorem</title>
   </head>
   <body>
-    <h1>Binomial Theorem</h1>
-
-    <input type="text" name="inputNumber" id="inputNumber" />
-    <button type="button" id="buttonSubmit">Submit</button>
     <main>
-      <div class="visual-one-row">
-        <div class="row"></div>
+      <div class="container">
+        <h1>Binomial Theorem</h1>
+
+        <label for="inputNumber">
+          <h3>Input</h3>
+          <input type="text" name="inputNumber" id="inputNumber" />
+          <button type="button" id="buttonSubmit">Submit</button>
+        </label>
+
+        <h3>Output</h3>
+        <div class="output" id="visual-one-row">
+          <div class="row">
+            <div class="col"></div>
+          </div>
+        </div>
       </div>
 
-      <div class="visual-every-row">
-        <div class="row">
-          <div class="col"></div>
-        </div>
-        <div class="row">
-          <div class="col"></div>
+      <div class="container step-by-step">
+        <h3>Step by Step</h3>
+        <div class="output" id="visual-every-row">
+          <div class="row">
+            <div class="col"></div>
+          </div>
         </div>
       </div>
     </main>
 
     <script src="index.js"></script>
+    <script src="dom.js"></script>
   </body>
 </html>
