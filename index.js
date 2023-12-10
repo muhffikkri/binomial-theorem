@@ -62,7 +62,7 @@ const binomialTheorem = (coefficient) => {
  */
 const expandEveryRow = (number) => {
   const total = [];
-  for (i = 0; i <= number; i++) {
+  for (let i = 0; i <= number; i++) {
     const temp = binomialTheorem(i);
     total.push(temp);
   }
@@ -88,12 +88,43 @@ const formatColumn = (number) => {
 /**
  * To visualize just one row
  */
-const visualOneRow = (val) => {};
+const visualOneRow = (val) => {
+  const data = binomialTheorem(val);
+  const domVisual = document.querySelector("#visual-one-row");
+  domVisual.innerHTML = "";
+  const row = document.createElement("div");
+  row.classList.add("row");
+
+  for (i = 0; i <= val; i++) {
+    row.innerHTML += formatColumn(data[i]);
+  }
+
+  domVisual.appendChild(row);
+};
+
 
 /**
  * To visualize every row
  */
-const visualEveryRow = (val) => {};
+const visualEveryRow = (val) => {
+  const data = expandEveryRow(val);
+  console.log(data)
+
+  const domVisual = document.querySelector("#visual-every-row");
+  domVisual.innerHTML = "";
+
+  for (let j = 0; j < data.length; j++) {
+    const row = document.createElement("div");
+    row.classList.add("row");
+    console.log(j);
+
+    for (let i = 0; i < data[j].length; i++) {
+      row.innerHTML += formatColumn(data[j][i]);
+    }
+
+    domVisual.appendChild(row);
+  }
+};
 
 /**
  *
@@ -107,16 +138,18 @@ const visualization = (arr) => {};
  */
 const render = () => {
   const inputNumber = document.querySelector("input[name='inputNumber']");
+  console.log(inputNumber.value);
 
+  
   // render visual one row
-  const outputVisualOneRow = document.querySelector("#visual-one-row");
-  outputVisualOneRow.innerHTML = "";
-  outputVisualOneRow.innerHTML = visualOneRow(inputNumber.value);
+  // const outputVisualOneRow = document.querySelector("#visual-one-row");
+  // outputVisualOneRow.innerHTML = "";
+  visualOneRow(Number(inputNumber.value));
 
   // render visual every row
-  const outputVisualEveryRow = document.querySelector("#visual-every-row");
-  outputVisualEveryRow.innerHTML = "";
-  outputVisualEveryRow.innerHTML = visualEveryRow(inputNumber.value);
+  // const outputVisualEveryRow = document.querySelector("#visual-every-row");
+  // outputVisualEveryRow.innerHTML = "";
+  visualEveryRow(Number(inputNumber.value));
 };
 
 const buttonSubmit = document.querySelector("#buttonSubmit");

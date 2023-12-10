@@ -5,16 +5,50 @@
 
 main {
   display: flex;
+  min-width: 400px;
+  margin: 10px 20px;
+  padding: 10px;
+  border: 1px solid black;
+  gap: 10px;
+  text-align: center;
+}
+
+h1, h2 {
+  margin-bottom: 10px;
 }
 
 .container {
-  width: fit-content;
   height: auto;
   display: flex;
   flex-direction: column;
+  flex-basis: 1;
+  flex-shrink: 1;
   flex-grow: 1;
   border: 1px solid black;
+  padding: 10px;
+  overflow: auto;
 }
 
 .step-by-step {
+  flex-grow: 2;
+}
+
+.output {
+  gap: 10px;
+  border: 1px solid black;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.col {
+  flex-grow: 1;
+  border: 1px solid red;
+  font-size: 20px;
+  font-weight: 600;
 }
